@@ -6,28 +6,28 @@ const siteConfig = {
   projectName: 'blazingly-site',
   organizationName: 'Blazingly.io',
   headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
-    {page: 'help', label: 'Help'},
-    {blog: true, label: 'Blog'},
+    {
+      doc: 'doc1',
+      label: 'Docs'
+    },
+    {
+      blog: true,
+      label: 'Blog'
+    },
   ],
-  users,
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
-  favicon: 'img/favicon.png',
+  headerIcon: 'img/blazingly.png',
   colors: {
-    primaryColor: '#2E8555',
-    secondaryColor: '#205C3B',
+    primaryColor: '#ffffff',
+    secondaryColor: '#E78734',
   },
-  copyright:
-    'Copyright © 2018-current  Blazingly.io',
+  copyright: 'Copyright © 2018-current Blazingly.io',
   highlight: {
     theme: 'default',
   },
-  scripts: ['https://buttons.github.io/buttons.js'],
+  separateCss: ['static/css/main'],
   onPageNav: 'separate',
-  ogImage: 'img/docusaurus.png',
-  twitterImage: 'img/docusaurus.png',
+  ogImage: 'img/blazingly.png',
+  twitterImage: 'img/blazingly.png',
 };
 
 module.exports = siteConfig;

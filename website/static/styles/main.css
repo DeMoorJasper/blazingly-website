@@ -1,0 +1,51 @@
+body {
+  color: #000000;
+}
+
+.projectTitle, 
+.button, 
+.toc .toggleNav ul li.navListItemActive a,
+a {
+  color: inherit;
+}
+
+.navigationSlider .slidingNav ul li a {
+  color: #000000;
+}
+
+.navigationSlider .slidingNav ul li a:hover, 
+.button:hover, 
+.toc .toggleNav ul li a:hover, 
+.toc .toggleNav ul li.navListItemActive a,
+a:hover {
+  color: #E78734;
+}
+
+.fixedHeaderContainer header .headerTitleWithLogo {
+  display: none;
+}
+
+.fixedHeaderContainer {
+  border-bottom: 2px solid #000000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.button {
+  border: 2px solid;
+}
+
+.homeContainer .homeWrapper .projectLogo {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 100px;
+  padding-bottom: 25px;
+}
+
+.projectLogo {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+}

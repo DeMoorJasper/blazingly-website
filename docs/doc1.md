@@ -1,29 +1,85 @@
 ---
 id: doc1
-title: Latin-ish
-sidebar_label: Example Page
+title: Getting Started
+sidebar_label: Getting Started
 ---
 
-Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
+## Installing blazingly
 
-## Lorem
+### Global
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum massa eget nulla aliquet sagittis. Proin odio tortor, vulputate ut odio in, ultrices ultricies augue. Cras ornare ultrices lorem malesuada iaculis. Etiam sit amet libero tempor, pulvinar mauris sed, sollicitudin sapien.
+using yarn
 
-## Mauris In Code
-
-```
-Mauris vestibulum ullamcorper nibh, ut semper purus pulvinar ut. Donec volutpat orci sit amet mauris malesuada, non pulvinar augue aliquam. Vestibulum ultricies at urna ut suscipit. Morbi iaculis, erat at imperdiet semper, ipsum nulla sodales erat, eget tincidunt justo dui quis justo. Pellentesque dictum bibendum diam at aliquet. Sed pulvinar, dolor quis finibus ornare, eros odio facilisis erat, eu rhoncus nunc dui sed ex. Nunc gravida dui massa, sed ornare arcu tincidunt sit amet. Maecenas efficitur sapien neque, a laoreet libero feugiat ut.
+```bash
+yarn global add @blazingly/cli
 ```
 
-## Nulla
+or using npm
 
-Nulla facilisi. Maecenas sodales nec purus eget posuere. Sed sapien quam, pretium a risus in, porttitor dapibus erat. Sed sit amet fringilla ipsum, eget iaculis augue. Integer sollicitudin tortor quis ultricies aliquam. Suspendisse fringilla nunc in tellus cursus, at placerat tellus scelerisque. Sed tempus elit a sollicitudin rhoncus. Nulla facilisi. Morbi nec dolor dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras et aliquet lectus. Pellentesque sit amet eros nisi. Quisque ac sapien in sapien congue accumsan. Nullam in posuere ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin lacinia leo a nibh fringilla pharetra.
+```bash
+npm install -g @blazingly/cli
+```
 
-## Orci
+### Local
 
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin venenatis lectus dui, vel ultrices ante bibendum hendrerit. Aenean egestas feugiat dui id hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur in tellus laoreet, eleifend nunc id, viverra leo. Proin vulputate non dolor vel vulputate. Curabitur pretium lobortis felis, sit amet finibus lorem suscipit ut. Sed non mollis risus. Duis sagittis, mi in euismod tincidunt, nunc mauris vestibulum urna, at euismod est elit quis erat. Phasellus accumsan vitae neque eu placerat. In elementum arcu nec tellus imperdiet, eget maximus nulla sodales. Curabitur eu sapien eget nisl sodales fermentum.
+You can also install it locally if you don't want to clutter your global package folder with dozens or hundreds of packages.
 
-## Phasellus
+using yarn
 
-Phasellus pulvinar ex id commodo imperdiet. Praesent odio nibh, sollicitudin sit amet faucibus id, placerat at metus. Donec vitae eros vitae tortor hendrerit finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque vitae purus dolor. Duis suscipit ac nulla et finibus. Phasellus ac sem sed dui dictum gravida. Phasellus eleifend vestibulum facilisis. Integer pharetra nec enim vitae mattis. Duis auctor, lectus quis condimentum bibendum, nunc dolor aliquam massa, id bibendum orci velit quis magna. Ut volutpat nulla nunc, sed interdum magna condimentum non. Sed urna metus, scelerisque vitae consectetur a, feugiat quis magna. Donec dignissim ornare nisl, eget tempor risus malesuada quis.
+```bash
+yarn add @blazingly/cli -D
+```
+
+or using npm
+
+```bash
+npm install @blazingly/cli -D
+```
+
+Create a scripts section in your package.json, otherwise it's probably not gonna work
+
+```Json
+{
+  "scripts": {
+    "serve": "blazingly serve ./src",
+    "build": "blazingly build ./src",
+    "production-server": "blazingly prod-serve"
+  }
+}
+```
+
+## Using blazingly
+
+Well Blazingly has a very strict naming and folder structure convention, besides that you can pretty much do whatever you want.
+
+Project structure:
+```
+/root
+  /.root - This is the root of the project '/' route
+  /<page-name> - This is a route to whatever you put as pagename for example a folder named hello will result in '/hello'
+  /contact - This is an example of a possible folder name/route results in '/contact'
+    /css - This contains all css files for the app, every file as a direct child of this folder is considered an entrypoint
+      /<subfolder> - subfolders of the css folder are not being used as entrypoints
+      style.css - Entrypoint transpiled by postCSS
+      anotherstyle.scss - Entrypoint transpiled by node-sass
+    /js - This contains all the javascript code for the page
+      App.js - This is the entrypoint (You can use any extension as long as parcel understands it and it outputs as Javascript)
+    pageData.json - This file can contain any page specific data
+    handleRequest.js - This file handles allows you to add custom pre-processing and data injection into the app, before it gets rendered (You can use any extension as long as parcel understands it and it outputs as Javascript)
+  siteData.json - This file can contain any site specific data
+```
+
+Starting the application:
+```bash
+blazingly serve <folder containing all the pages {in the above case ./root}>
+```
+
+Building for production
+```bash
+blazingly build <folder containing all the pages {in the above case ./root}>
+```
+
+Starting the production server (run blazingly build first!)
+```bash
+blazingly prod-serve <the output folder of the build command>
+```
