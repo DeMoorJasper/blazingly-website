@@ -1,7 +1,8 @@
 {
   "docs": {
-    "Docusaurus": [
-      "doc1"
+    "Getting Started": [
+      "install",
+      "basic-usage"
     ]
   }
 }

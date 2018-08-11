@@ -59,7 +59,7 @@ class HomeSplash extends React.Component {
           <img src={imgUrl('blazingly.png')} className="projectLogo" />
           <ProjectTitle />
           <PromoSection>
-            <Button href={docUrl('doc1.html', language)}>Get Started</Button>
+            <Button href={docUrl('install.html', language)}>Get Started</Button>
             <Button href="https://github.com/DeMoorJasper/blazingly">Github</Button>
           </PromoSection>
         </div>

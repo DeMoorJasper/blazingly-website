@@ -7,7 +7,7 @@ const siteConfig = {
   organizationName: 'Blazingly.io',
   headerLinks: [
     {
-      doc: 'doc1',
+      doc: 'install',
       label: 'Docs'
     },
     {
